@@ -20,6 +20,5 @@ The diagram represents the architecture of our COVID-19 data analytics solution:
 
 5. **Publishing**:
    - Transformed and analyzed data is published for visualization and insights using Power BI.
-This architecture leverages Azure Data Factory for orchestrating data workflows, along with other Azure services, to provide a scalable and efficient solution for COVID-19 data analytics, ensuring accurate insights and robust data management.
 
 
