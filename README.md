@@ -26,14 +26,20 @@ The diagram represents the architecture of our COVID-19 data analytics solution:
 ### Environment setup
 - Azure Subscription
 - Data Factory
-![[Pasted image 20240720232755.png]]
+![Screenshot 2024-07-20 224923](https://github.com/user-attachments/assets/189c7ae8-661c-4714-9501-d82ed51310fe)
+
 - Azure Blob Storage Account
-![[Screenshot 2024-07-20 230404.png]]
+  ![Screenshot 2024-07-20 230404](https://github.com/user-attachments/assets/a91f566f-d5d8-49cb-87fc-0d046e794812)
+
 - Data Lake Storage Gen2
-![[Screenshot 2024-07-20 231327.png]]
+  ![Screenshot 2024-07-20 231327](https://github.com/user-attachments/assets/1b0adb73-5d68-4345-a2d6-0e310970bfa7)
+
 - Azure SQL Database
-![[Pasted image 20240720232914.png]]
+  ![Screenshot 2024-07-20 232537](https://github.com/user-attachments/assets/81c3315f-7892-4678-a51f-dbf0e60fade8)
+
 - Azure Databricks Cluster
+![image](https://github.com/user-attachments/assets/67b358c3-ca56-4266-ba48-1ad8afbb8df0)
+
 
 
 ### Let's start step by step
