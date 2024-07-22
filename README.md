@@ -66,7 +66,8 @@ we ingested our data from blob storage to azure data lake Gen2 by copy activity
 - Covid-19 new cases and deaths by Country
 - Covid-19 Hospital admissions & ICU cases
 - Country Response to Covid-19
- ![Pipeline](https://github.com/user-attachments/assets/Screenshot20240721165053.png)
+![image](https://github.com/user-attachments/assets/4799d473-fac2-4d82-8709-66dc1ac23e19)
+
 Create linked service to HTTP connector 
 Create dataset from HTTP connector
 Create dataset for ADLS Gen2
@@ -75,9 +76,11 @@ Create Pipeline that consists of:
 - Lookup to get the information from json file
 - ForEach to make for loop to the file to get the all http data
 - Copy activity to copy data from http connector
-![[Pasted image 20240721165053.png]]
+  ![image](https://github.com/user-attachments/assets/4442a678-3685-456c-ab7b-0d0e36c6585e)
+
 # Step 2:Transformation
-![[Pasted image 20240721172756.png]]
+![Screenshot 2024-07-21 172727](https://github.com/user-attachments/assets/a0680fe0-69ac-4bf9-bc76-28c28849c815)
+
 ### 1)Transform Cases & Deaths Data 
 use **Data Flows** to:
 1) Filter only Europe data.
@@ -85,11 +88,14 @@ use **Data Flows** to:
 3) Pivot the indicator column to confirmed cases and deaths
 4) change data to reported date
 5) Drop rate_14_day column
-![[Pasted image 20240721174257.png]]
+![image](https://github.com/user-attachments/assets/cbadad51-7634-498d-80bb-1fcb736acedc)
+
 This all the transformation that we need to do on cases and deaths data
-![[Pasted image 20240721214223.png]]
+![image](https://github.com/user-attachments/assets/6f8ed6ba-baa3-4d79-9060-b0701d7fada8)
+
 The Pipeline of the Dataflow
-![[Pasted image 20240722104748.png]]
+![image](https://github.com/user-attachments/assets/24e1aa5a-299f-4b10-8a50-d19ca412462e)
+
 ### 2)Transform Hospital Admissions Data
 1) Drop url column
 2) Separate the file into 2 files one for daily and one for weakly
@@ -97,12 +103,15 @@ The Pipeline of the Dataflow
 4) Rename date to reported date
 5) Use lookup to get reported_weak_start_date and  reported_weak_end_date
 6) Use another lookup to get some information
-![[Pasted image 20240722130108.png]]
+![image](https://github.com/user-attachments/assets/a82d10c7-09a9-428c-8268-81f4fac5d7cd)
+
 The Data Flow
-![[Pasted image 20240722145532.png]]
+![image](https://github.com/user-attachments/assets/8e711d28-8bea-4d75-b411-b479f489b80d)
+
 
 ### 3)Transform Population Data
-![[Pasted image 20240722175518.png]]
+![image](https://github.com/user-attachments/assets/023b180a-b469-447a-b30b-b22872eb7dd9)
+
 
 **We use Databricks and spark to transform population data**
 - Create Databricks Service
@@ -115,17 +124,20 @@ The Data Flow
 - Grant access for data lake to Azure Service Principal
 - Create the mount in databricks using Service Principal
 ### Population data transformation requirements
-![[Pasted image 20240722192048.png]]
+![image](https://github.com/user-attachments/assets/80c4def7-10c1-4814-8e1f-4d0770e3a51b)
+
 1. Split the country code & age group
 2. Exclude all data other than 2019
 3. Remove non numeric data from percentage
 4. Pivot the data by age group
 5. Join to dim_country to get the country, 3 digit country code and the total population.
 # step 3: Copy Data to Azure SQL
-![[Pasted image 20240722203639.png]]
+![image](https://github.com/user-attachments/assets/d75de8ea-9ed7-4911-a058-698ea2dea78e)
+
 - Create tables
 - Create pipeline to copy data
-![[Pasted image 20240722210958.png]]
+![image](https://github.com/user-attachments/assets/8a135edf-8bd5-497f-8ae3-531639412a63)
+
 # 3)Data Orchestration
 ### Requirements
 - Pipeline executions are full automated 
@@ -134,7 +146,8 @@ The Data Flow
 - Easier to monitor for execution progress and issues
 The Pipeline of execute population data
 
-![[Pasted image 20240722222158.png]]
+![image](https://github.com/user-attachments/assets/d3347c77-5091-4915-9f34-522296f4b718)
+
 
   
 
