@@ -46,9 +46,11 @@ The diagram represents the architecture of our COVID-19 data analytics solution:
 # Step 1: Data Ingestion
 ### Ingest population data
 we ingested our data from blob storage to azure data lake Gen2 by copy activity
-![[Pasted image 20240720234123.png]]
+![Screenshot 2024-07-20 234113](https://github.com/user-attachments/assets/69807e06-14e2-48f9-aea6-2c78a2fd111e)
+
 #### Copy Activity 
-![[Pasted image 20240720234400.png]]
+![Screenshot 2024-07-20 234345](https://github.com/user-attachments/assets/44c551fa-81f0-48ce-a3fe-b9758d31d157)
+
 
 - Create population container in the blob storage and put zipped TSV file in it.  
 - Create the raw container in data lake storage Gen2
@@ -58,12 +60,13 @@ we ingested our data from blob storage to azure data lake Gen2 by copy activity
 - Check if the Column Count of the file matches then copy the file
 - Create storage event trigger for pipeline
 ### Ingest ECDC data (HTTP Connector)
-![[Pasted image 20240721022714.png]]
+![Screenshot 2024-07-21 022704](https://github.com/user-attachments/assets/0540f5e1-3ce3-49a8-ae88-5e349e3e86d9)
+
 ##### Data Ingestion Requirements:
 - Covid-19 new cases and deaths by Country
 - Covid-19 Hospital admissions & ICU cases
 - Country Response to Covid-19
-![[Pasted image 20240721142104.png]]
+ ![Pipeline](https://github.com/user-attachments/assets/Screenshot20240721165053.png)
 Create linked service to HTTP connector 
 Create dataset from HTTP connector
 Create dataset for ADLS Gen2
